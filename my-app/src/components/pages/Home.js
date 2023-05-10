@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import BookSearch from "../BooksApi";
+import BookSearch from "../Results";
 import ReactDOM from "react-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import RenderResult from "../BooksApi";
+import RenderResult from "../Results";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const Home = () => {
-  const [searchState, setSearchState] = useState({ searchQuery: "" });
-  console.log(searchState);
+  const { handleSubmit, query, handleChange, results } = useSearch();
 
-  const [sentState, setSentState] = useState({ sent: false });
+  // const [searchState, setSearchState] = useState({ searchQuery: "" });
+  // console.log(searchState);
+
+  // const [sentState, setSentState] = useState({ sent: false });
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -23,18 +25,18 @@ const Home = () => {
     console.log(searchState);
   }
 
-  function submitSearch(event) {
-    console.log("click");
-    event.preventDefault();
+  // function submitSearch(event) {
+  //   console.log("click");
+  //   event.preventDefault();
 
-    setSentState(true);
-    console.log({ searchState } + "searchState");
-  }
+  //   setSentState(true);
+  //   console.log({ searchState } + "searchState");
+  // }
 
   return (
     <>
       <h1></h1>
-      <Form onSubmit={submitSearch}>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Search</Form.Label>
           <Form.Control
@@ -50,10 +52,10 @@ const Home = () => {
         </Button>
       </Form>
       <Container>
-        {sentState == true ? (
-          <RenderResult data={searchState.searchQuery} />
+        {results?.length === 0 ? (
+          console.log("input search term")
         ) : (
-          console.log("search not sent")
+          <Results data={results} />
         )}
       </Container>
     </>
