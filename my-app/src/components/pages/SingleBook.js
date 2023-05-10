@@ -1,37 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
-// import getSingleBook from "../../utils/getSingleBook";
+import { useGetBook } from '../../hooks/useGetBook';
 
 const SingleBook = () => {
-  const [items, setItems] = useState([]);
+  const { search } = window.location;
+  const searchParameters = new URLSearchParams(search);
+  const id = searchParameters.get('id');
 
-  useEffect(() => {
-    let searchQuery = "";
-    console.log("test");
-    setItems(JSON.parse(localStorage.getItem("items")));
-  }, []);
+  const {
+    data
+  } = useGetBook(id);
 
-  console.log(items);
 
-  const [apiResponse, setApiResponse] = useState([]);
-
-  const url = "https://www.googleapis.com/books/v1/volumes/";
-  const key = "AIzaSyDyUh9tTZjRYDn1uNQbyK8fgrSAGsMKnW4";
-  const apiURL = url + items + "?key=" + key;
-
-  //   console.log(apiURL);
-
-  useEffect(() => {
-    fetch(apiURL)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setApiResponse(data);
-      });
-  }, []);
-  console.log(apiResponse);
+  console.log(data); // book object
 
   //   const handleClose = () => setShow(false);
   //   const handleShow = () => setShow(true);
