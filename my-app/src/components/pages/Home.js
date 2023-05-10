@@ -1,37 +1,12 @@
-import React, { useState } from "react";
-import BookSearch from "../Results";
-import ReactDOM from "react-dom";
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import RenderResult from "../Results";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { useSearch } from "../../hooks/useSearch";
+import { Results } from "../Results";
 
 const Home = () => {
   const { handleSubmit, query, handleChange, results } = useSearch();
-
-  // const [searchState, setSearchState] = useState({ searchQuery: "" });
-  // console.log(searchState);
-
-  // const [sentState, setSentState] = useState({ sent: false });
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setSearchState({
-      ...searchState,
-      [name]: value,
-    });
-    console.log(searchState);
-  }
-
-  // function submitSearch(event) {
-  //   console.log("click");
-  //   event.preventDefault();
-
-  //   setSentState(true);
-  //   console.log({ searchState } + "searchState");
-  // }
 
   return (
     <>
@@ -43,7 +18,7 @@ const Home = () => {
             name="searchQuery"
             type="searchQuery"
             placeholder="enter search here"
-            value={searchState.searchQuery}
+            value={query}
             onChange={handleChange}
           />
         </Form.Group>

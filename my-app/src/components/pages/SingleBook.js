@@ -1,21 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
-// import getSingleBook from "../../utils/getSingleBook";
+import { useGetBook } from "../../hooks/useGetBook";
 
 const SingleBook = () => {
-  const [items, setItems] = useState([]);
+  const { search } = window.location;
+  const searchParameters = new URLSearchParams(search);
+  const id = searchParameters.get("id");
 
-  useEffect(() => {
-    let searchQuery = "";
-    console.log("test");
-    setItems(JSON.parse(localStorage.getItem("items")));
-  }, []);
+  const { data } = useGetBook(id);
 
-  console.log(items);
-
-  //   console.log(apiURL);
+  console.log(data);
 
   return (
     <>
