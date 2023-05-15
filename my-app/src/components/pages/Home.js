@@ -7,11 +7,12 @@ import { Results } from "../Results";
 
 const Home = () => {
   const { handleSubmit, query, handleChange, results } = useSearch();
+  console.log(results);
 
   return (
     <>
       <h1></h1>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={(query) => handleSubmit(query)}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Search</Form.Label>
           <Form.Control
@@ -19,7 +20,7 @@ const Home = () => {
             type="searchQuery"
             placeholder="enter search here"
             value={query}
-            onChange={handleChange}
+            onChange={(query) => handleChange(query)}
           />
         </Form.Group>
         <Button variant="primary" type="submit">
