@@ -8,30 +8,29 @@ export function Results({ data }) {
     <>
       <Row>
         {data.map((item) => {
-          console.log(item.volumeInfo);
-          // return (
-          //   <Col xs={12} md={4} lg={3}>
-          //     <Card key={item.id} className="bookCard">
-          //       <Card.Img
-          //         variant="top"
-          //         className="cardImg"
-          //         src={item.volumeInfo.imageLinks.thumbnail}
-          //       />
+          return (
+            <Col xs={12} md={4} lg={3}>
+              <Card key={item.id} className="bookCard">
+                <Card.Img
+                  variant="top"
+                  className="cardImg"
+                  src={item.volumeInfo.imageLinks.thumbnail}
+                />
 
-          //       <Card.Body>
-          //         <Card.Title>{item.volumeInfo.title}</Card.Title>
-          //         <Card.Text>{item.volumeInfo.authors}</Card.Text>
-          //         <Card.Text>{item.volumeInfo.categories}</Card.Text>
-          //         <Card.Text>{item.volumeInfo.pageCount} pages</Card.Text>
-          //         <Card.Text>{item.id}</Card.Text>
+                <Card.Body>
+                  <Card.Title>{item.volumeInfo.title}</Card.Title>
+                  <Card.Text>{item.volumeInfo.authors}</Card.Text>
+                  <Card.Text>{item.volumeInfo.categories}</Card.Text>
+                  <Card.Text>{item.volumeInfo.pageCount} pages</Card.Text>
+                  <Card.Text>{item.id}</Card.Text>
 
-          //         <a href={`http://localhost:3000/singlebook?id=${item.id}`}>
-          //           Read more
-          //         </a>
-          //       </Card.Body>
-          //     </Card>
-          //   </Col>
-          // );
+                  <a href={`http://localhost:3000/singlebook?id=${item.id}`}>
+                    Read more
+                  </a>
+                </Card.Body>
+              </Card>
+            </Col>
+          );
         })}
       </Row>
     </>

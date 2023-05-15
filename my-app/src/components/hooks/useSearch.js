@@ -1,6 +1,6 @@
 const callBooksApi = async (searchQuery) => {
   const query = searchQuery.data;
-  const apiURL = url + query + "&maxResults=9" + "&key=" + key;
+  const apiURL = url + query + "&maxResults=1" + "&key=" + key;
   console.log("use Search");
   try {
     const response = await fetch(apiURL);
