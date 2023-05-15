@@ -20,6 +20,7 @@ const searchBooks = async (query) => {
 
 export const useSearch = () => {
   const [query, setQuery] = useState("");
+  console.log(query + "23");
   const [results, setResults] = useState([]);
   const handleChange = (e) => {
     console.log("handle change");
@@ -28,7 +29,7 @@ export const useSearch = () => {
   };
   //   const searchMaps = async () => [];
 
-  const handleSubmit = async (query, event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("test");
     const books = await searchBooks(query);
