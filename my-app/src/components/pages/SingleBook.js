@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useGetBook } from "../../hooks/useGetBook";
+import { useGetBook } from "../hooks/useGetBook";
 
 const SingleBook = () => {
   const { search } = window.location;

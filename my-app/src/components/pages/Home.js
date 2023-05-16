@@ -2,7 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import { useSearch } from "../../hooks/useSearch";
+import { useSearch } from "../hooks/useSearch";
 import { Results } from "../Results";
 
 const Home = () => {
