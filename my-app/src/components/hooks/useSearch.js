@@ -36,7 +36,7 @@ export const useSearch = () => {
     // const locations = await searchMaps(query);
     console.log({ books });
     // transform the data to conform to a standard
-    setResults([books]);
+    setResults(books);
   };
 
   return {
