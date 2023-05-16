@@ -1,14 +1,15 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useGetBook } from "../hooks/useGetBook";
+import { useGetVolume } from "../hooks/useGetVolume";
 
 const SingleBook = () => {
   const { search } = window.location;
   const searchParameters = new URLSearchParams(search);
   const id = searchParameters.get("id");
+  console.log(id + "singleBook 10");
 
-  const { data } = useGetBook(id);
+  const { data } = useGetVolume(id);
 
   console.log(data);
 
