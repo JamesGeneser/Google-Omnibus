@@ -3,16 +3,22 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useGetVolume } from "../hooks/useGetVolume";
 
-const SingleBook = () => {
+const SingleBook = async () => {
   const { search } = window.location;
   const searchParameters = new URLSearchParams(search);
   const id = searchParameters.get("id");
   console.log(id + "singleBook 10");
 
-  const { data } = useGetVolume(id);
+  // const UseVolumeGetter = async (id) => {
+  //   useGetVolume(id);
+  //   // const { data } = useGetVolume(id);
+  // };
 
-  console.log(data);
+  // UseVolumeGetter().catch(console.error);
 
+  // console.log(data);
+
+  // useGetVolume(id);
   return (
     <>
       <h1>Single Book</h1>
