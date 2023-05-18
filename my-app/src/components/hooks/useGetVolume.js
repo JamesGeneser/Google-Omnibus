@@ -17,19 +17,23 @@ export const useGetVolume = (id) => {
       console.log(jsonData);
       setBook(jsonData);
     };
-
     fetchVolumeData().catch(console.error);
-
-    // const response = fetch(url);
-    // console.log(response).then((response) => {
-    //   console.log(response.json());
-    // });
-    // .then((response) => response.json());
-    // console.log(response).then((data) => {
-    //   console.log(data + "useGet Book 16");
-    //   setBook(data);
-    // });
   }, []);
 
-  // return book;
+  // useEffect(() => {
+  //   const data = fetch(url);
+  //   console.log(data);
+  //   const jsonData = data.json();
+  //   console.log(jsonData);
+  //   const response = fetch(url);
+  //   console.log(response).then((response) => {
+  //     console.log(response.json());
+  //   });
+  //   .then((response) => response.json());
+  //   console.log(response).then((data) => {
+  //     console.log(data + "useGet Book 16");
+  //     setBook(data);
+  //   });
+  // }, []);
+  return book;
 };
