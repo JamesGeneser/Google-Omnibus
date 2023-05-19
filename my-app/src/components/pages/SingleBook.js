@@ -14,11 +14,12 @@ const SingleBook = () => {
     console.log(data);
     useEffect(() => {
       setData(data);
-    }, []);
+    }, [useGetVolume]);
   }
 
   VolumeGetter(id);
   console.log(data);
+
   return (
     <>
       <h1>Single Book</h1>
@@ -26,7 +27,7 @@ const SingleBook = () => {
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
-          <Card.Title>Title</Card.Title>
+          <Card.Title>{data.volumeInfo.title}</Card.Title>
           <Card.Text>
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
