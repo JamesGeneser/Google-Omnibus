@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useGetVolume } from "../hooks/useGetVolume";
@@ -7,15 +7,18 @@ const SingleBook = () => {
   const { search } = window.location;
   const searchParameters = new URLSearchParams(search);
   const id = searchParameters.get("id");
-  console.log(id + "singleBook 10");
+  const [data, setData] = useState({});
 
   function VolumeGetter(id) {
     let data = useGetVolume(id);
     console.log(data);
+    useEffect(() => {
+      setData(data);
+    }, []);
   }
+
   VolumeGetter(id);
-  // const data = useGetVolume(id);
-  // console.log(data);
+  console.log(data);
   return (
     <>
       <h1>Single Book</h1>
